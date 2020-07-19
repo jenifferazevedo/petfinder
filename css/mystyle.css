@@ -1,0 +1,45 @@
+body {
+  font-size: 16px;
+}
+#header {
+  background-color: #E8680C;
+  text-align: center;
+}
+#header img {
+  width: 40%;
+  min-width: 250px;
+}
+.navbar a.navbar-brand img{
+  width: 200px;
+}
+.navbar .navbar-nav {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+#footer {
+  position: fixed-bottom;
+  background-color: #19ADFF;
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  flex-direction: row;
+  padding: 0 10px;
+}
+#footer p a.voltar i {
+  padding-right: 0;
+  font-size: 1em;
+}
+#footer p a.voltar  {
+  white-space: nowrap;
+}
+#footer a  {
+  margin-left: auto;
+  color: #bfe4f8;
+}
+#footer a:hover  {
+  color: #084436;
+}
+#footer a i {
+  padding: 10px;
+  font-size: 2em;
+}

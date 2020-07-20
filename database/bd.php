@@ -7,5 +7,6 @@ echo "User online!<br>";
 }catch(PDOException $e)
 {
 echo "Ligação falhou: " . $e->getMessage();
+$conn = null;
 }
 ?>

@@ -33,6 +33,21 @@ form button.btn {
 #contacto {
   padding-bottom: 100px;
 }
+
+/*Cadastro User*/
+#cadastrouser img {
+  width: 80%;
+  min-width: 300px;
+}
+
+/*Dashboard User*/
+.user-foto {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
 /*Footer*/
 #footer {
   position: fixed-bottom;

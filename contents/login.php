@@ -2,9 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-6 col-sm-12">
       <div class="d-flex">
-        <div>
-          <h1>Login</h1>
-        </div>
+        <h1>Login</h1>
       </div>
       <form class="needs-validation" novalidate action="" method="post">
         <div class="form-row fading-left">
@@ -18,7 +16,7 @@
         </div>
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
-            <label for="validationCustom02">Password</label>
+            <label for="validationCustom02">Senha</label>
             <input type="password" class="form-control" id="validationCustom02" value="" max="8" name="password" required>
             <div class="invalid-feedback">
               Digite sua senha!
@@ -27,7 +25,7 @@
         </div>
         <button class="btn d-flex ml-auto fading" type="submit">Enviar</button>
       </form>
-
+      <p>Não possui login? <a href="index.php?p=Cadastro" class="font-weight-bold">Cadastre-se</a></p>
       <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {

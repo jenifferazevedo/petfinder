@@ -7,7 +7,7 @@
           <p>Ajude pets a encontarem uma família!</p>
         </div>
       </div>
-      <form class="needs-validation" novalidate action="" method="post">
+      <form class="needs-validation" novalidate action="./database/insert.php" method="post">
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom01">Nome</label>
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="form-row fading-left">
+        <!--<div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom07">Foto</label>
             <input type="text" class="form-control" id="validationCustom07" value="" name="user_foto" required>
@@ -43,11 +43,11 @@
               Coloque a url da foto.
             </div>
           </div>
-        </div>
+        </div>-->
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
             <label for="validationCustom05">Telefone</label>
-            <input type="text" class="form-control" id="validationCustom05" value="" name="contact" max="12" placeholder="Telemóvel/Telefone" pattern="([0-9]{3})[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+            <input type="text" class="form-control" id="validationCustom05" value="" name="contact" max="12" placeholder="Telemóvel/Telefone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
             <div class="invalid-feedback">
                Digite um número válido.
             </div>

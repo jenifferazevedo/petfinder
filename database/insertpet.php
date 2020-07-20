@@ -1,15 +1,17 @@
 <?php
 include ('bd.php');
 try{
-$nome_aluno=$_POST['nome_aluno'];
-$contacto=$_POST['contacto'];
-$morada=$_POST['morada'];
-$sql = "INSERT INTO alunos ( nome_aluno, contacto, morada) VALUES ('$nome_aluno','$contacto','$morada')";
+$pet_name=$_POST['pet_name'];
+$status=$_POST['status'];
+$tipo=$_POST['tipo'];
+$description=$_POST['description'];
+
+$sql = "INSERT INTO pet ( name, user_id, status, pet_type, description) VALUES ('$pet_name','$status','$tipo','$description')";
 $conn->exec($sql);
 echo "aluno inserido!<br>";
 }catch(PDOException $e){
 echo $sql . "<br>" . $e->getMessage();
 }
-echo "<a href=\"lista.php\">Voltar à lista de alunos</a>";
+echo "<a href=\"index.html\">Voltar à página inicial</a>";
 $conn = null;
 ?>

@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if(isset($_POST['email'], $_POST['nome'], $_POST['assunto'], $_POST['message'])) {
+if(isset($_POST['nome'], $_POST['email'], $_POST['assunto'], $_POST['mensagem'])) {
   // Load Composer's autoloader
   require '../vendor/autoload.php';
 
@@ -16,11 +16,11 @@ if(isset($_POST['email'], $_POST['nome'], $_POST['assunto'], $_POST['message']))
   $email = $_POST['email'];
   $nome = $_POST['nome'];
   $assunto = $_POST['assunto'];
-  $message = $_POST['message'];
+  $message = $_POST['mensagem'];
   
   try {
       //Server settings
-//      $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+//    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
       $mail->isSMTP();                                              // Send using SMTP
       $mail->SMTPOptions = array(
         'ssl' => array(
@@ -37,17 +37,17 @@ if(isset($_POST['email'], $_POST['nome'], $_POST['assunto'], $_POST['message']))
       $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
   
       //Recipients
-      $mail->setFrom($email_project, 'Equipa JJ');
-      $mail->addAddress($email, $nome);                           // Add a recipient
+      $mail->setFrom($email, $nome);
+      $mail->addAddress($email_project, 'Equipa JJ');                           // Add a recipient
   
       // Content
       $mail->isHTML(true);                                        // Set email format to HTML
       $mail->Subject = $assunto;
-      $mail->Body    = $message;
+      $mail->Body    = "<p>$nome,</p><p>$email</p><p>$message</p>";
 //    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
   
       $mail->send();
-      echo "<script>alert('A mensagem foi enviada com sucesso!')
+      echo "<script>alert('A mensagem foi enviada com sucesso!');
       window.location.href = '../index.php?p=Home'; 
       </script>";
   } catch (Exception $e) {

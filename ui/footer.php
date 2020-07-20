@@ -1,4 +1,4 @@
-  <div id="footer" class="fixed-bottom px-2 py-1 d-flex align-items-center">
+  <div id="footer" class="fixed-bottom d-flex align-items-center">
     <p class="m-0 pl-2">Desenvolvido por Equipa JJ 
       <?php if(isset($_GET['p'])) 
             echo '<a class="voltar" href="index.php"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar à página inicial</a>'

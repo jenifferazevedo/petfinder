@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/mystyle.css">
+    <link rel="stylesheet" href="./css/animations.css">
     <title><?php 
       if(isset($_GET['p'])) {
         echo 'PETFINDER - '.$_GET['p'];

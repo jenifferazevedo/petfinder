@@ -1,6 +1,6 @@
 <?php
 include('bd.php');
-$stmt = $conn->query("SELECT * FROM users");
+$stmt = $conn->query("SELECT * FROM alunos");
 while ($row = $stmt->fetch()) {
 echo $row['nome_aluno']. " em ".$row['contacto']."<br>";
 echo $row['morada']."<br />\n";

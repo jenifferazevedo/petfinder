@@ -6,7 +6,10 @@ $user_email=$_POST['email'];
 $password=$_POST['password'];
 $contact=$_POST['contact'];
 $adress=$_POST['adress'];
-$sql = "INSERT INTO users ( name, email, password, contact, adress) VALUES ('$user_name','$email','$password',$contact',$adress')";
+
+ 
+
+$sql = "INSERT INTO users (name, email, password, contact, adress) VALUES ('$user_name','$user_email','$password','$contact','$adress')";
 $conn->exec($sql);
 echo "aluno inserido!<br>";
 }catch(PDOException $e){

@@ -4,7 +4,7 @@
       <div class="d-flex">
         <h1>Login</h1>
       </div>
-      <form class="needs-validation" novalidate action="" method="post">
+      <form class="needs-validation" novalidate action="./database/login_user.php" method="post">
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom01">E-mail</label>

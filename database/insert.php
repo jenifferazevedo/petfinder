@@ -10,7 +10,7 @@ if(isset($_POST['user_name'],$_POST['email'],$_POST['password'],$_POST['contact'
     $user_cep=$_POST['user_cep'];
     $user_city=$_POST['user_city'];
     
-    $sql = "INSERT INTO users (name, email, password, contact, adress, post_code, City) VALUES ('$user_name','$user_email','$password','$contact','$adress','$user_cep','$user_city')";
+    $sql = "INSERT INTO users (name, email, password, contact, adress, post_code, city) VALUES ('$user_name','$user_email','$password','$contact','$adress','$user_cep','$user_city')";
     $conn->exec($sql);
     echo "<script>alert('Cadastro realizado com sucesso');
     window.location.href = '../index.php?p=Login'; 

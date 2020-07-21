@@ -1,12 +1,12 @@
 <?php
-$servername = "localhost"; $username = "joseusercomum";$password = "joseusercomum";
+include('../environment/environment.php');
+$servername = "localhost"; $username = $user_database;$password = $senha_database;
 try {
 $conn = new PDO("mysql:host=$servername;dbname=petfinder", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "User online!<br>";
 }catch(PDOException $e)
 {
-echo "Ligação falhou: " . $e->getMessage();
-$conn = null;
+  echo " ERRO - {$e->getMessage()})";
+  $conn = null;
 }
 ?>

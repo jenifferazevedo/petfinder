@@ -5,10 +5,10 @@
   </button>
   <?php
   if (isset($_SESSION['petfinder-user'])): ?>
-    <?php include('./navs/nav_user.php')?>   
+    <?php include('./ui/navs/nav_user.php')?>   
   <?php elseif(isset($_SESSION['petfinder-admin'])): ?>
-    <?php include('./navs/nav_admin.php')?>   
+    <?php include('./ui/navs/nav_admin.php')?>   
   <?php else: ?>
-    <?php include('./navs/nav_basic.php')?>   
+    <?php include('./ui/navs/nav_basic.php')?>   
   <?php endif; ?>
 </nav>

@@ -46,22 +46,39 @@ form button.btn {
   font-size: 1.2em;
 }
 /*Home*/
-#carouselHome .carousel-item {
+#home .carousel-item {
   height: 450px;
   overflow: hidden;
 }
-#carouselHome .carousel .carousel-item img {
+#home .carousel .carousel-item img {
   min-width: 800px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#carouselHome .carousel .carousel-item .carousel-caption {
+#home .carousel .carousel-item .carousel-caption {
   background-color: rgba(0, 0, 0, 0.50);
   padding: 5px 10px;
   position: absolute;
   bottom: 5%;
+}
+.parallax1 {
+  background-image: url("../img/parallax1.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner {
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 0.50);
+}
+.banner .btn {
+  text-transform: uppercase;
 }
 
 /*Adocao*/

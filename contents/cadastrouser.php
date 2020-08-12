@@ -47,9 +47,9 @@
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
             <label for="validationCustom05">Telefone</label>
-            <input type="text" class="form-control" id="validationCustom05" value="" name="contact" max="12" placeholder="Telemóvel/Telefone" required>
+            <input type="text" class="form-control" id="validationCustom05" value="" name="contact" maxlength="9" pattern="[0-9]{9}"  placeholder="XXXXXXXXX" required>
             <div class="invalid-feedback">
-               Digite um número válido.
+               Digite um número válido, sem espaços ou caracteres não numéricos.
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="form-row fading-right">
           <div class="col-6 mb-3">
             <label for="validationCustom05">Cep</label>
-            <input type="text" class="form-control" id="validationCustom05" value="" name="user_cep" required>
+            <input type="text" class="form-control" id="validationCustom05" value="" name="user_cep" maxlength="7" placeholder="XXXXXXX" required>
             <div class="invalid-feedback">
                Digite um endereço válido.
             </div>

@@ -1,4 +1,5 @@
 <?php 
+  session_start();
   include("./ui/header.php");
   if(isset($_GET['p'])){
     $pag = $_GET['p'];
@@ -8,24 +9,33 @@
     else if ($pag == 'Contacto') include("./contents/contacto.php");
     else if ($pag == 'Login') include("./contents/login.php");
     else if ($pag == 'Cadastro') include("./contents/cadastrouser.php");
-    else if ($pag == 'Admin'){
-      /*session_start();
-      if(isset($_SESSION['adm']) && is_array($_SESSION['adm'])) {*/
-        if(isset($_GET['pg'])){
-          $pg = $_GET['pg'];
-          if($pg == 'Home') include("./contents/admindashboard.php");
-          else if ($pg == 'TableUser') include("./contents/userstable.php");
-          else if ($pg == 'TablePet') include("./contents/petstable.php");
-          else if ($pg == 'ChangeUser') include("./contents/userstable.php");
-          else if ($pg == 'ChangePet') include("./contents/userstable.php");
-          else if ($pg == 'Perfil') include("./contents/perfil.php");
-          else include("./contents/admindashboard.php");
-        }
-        else include("./contents/admindashboard.php");
-      /*}
-      else include("./contents/home.php")*/
+  }
+  else if(isset($_SESSION['petfinder-admin']) && is_array($_SESSION['petfinder-admin'])) {
+    if(isset($_GET['pg'])){
+      $pg = $_GET['pg'];
+      if($pg == 'Home') include("./contents/admindashboard.php");
+      else if ($pg == 'TableUser') include("./contents/userstable.php");
+      else if ($pg == 'TablePet') include("./contents/petstable.php");
+      else if ($pg == 'ChangeUser') include("./contents/userstable.php");
+      else if ($pg == 'ChangePet') include("./contents/userstable.php");
+      else if ($pg == 'Perfil') include("./contents/perfil.php");
+      else include("./contents/admindashboard.php");
     }
-    else include("./contents/home.php");
-  } else include("./contents/home.php");
+    else include("./contents/admindashboard.php");
+  }
+  else if(isset($_SESSION['petfinder-user']) && is_array($_SESSION['petfinder-user'])) {
+    if(isset($_GET['s'])){
+      $pg = $_GET['s'];
+      if($pg == 'Home') include("./contents/userdashboard.php");
+      else if ($pg == 'SobreNos') include("./contents/sobrenos.php");
+      else if ($pg == 'Adocao') include("./contents/adocao.php");
+      else if ($pg == 'Contacto') include("./contents/contacto.php");
+      else if ($pg == 'Perfil') include("./contents/perfil.php");
+      else if ($pg == 'CadastroPet') include("./contents/cadastropet.php");
+      else include("./contents/admindashboard.php");
+    }
+    else include("./contents/admindashboard.php");
+  }
+  else include("./contents/home.php");
   include("./ui/footer.php");
 ?>

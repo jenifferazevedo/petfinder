@@ -1,3 +1,19 @@
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
 body {
   font-size: 16px;
 }
@@ -28,6 +44,24 @@ form button.btn {
   font-family: 'Mulish', sans-serif;
   font-weight: 600;
   font-size: 1.2em;
+}
+/*Home*/
+#carouselHome .carousel-item {
+  height: 450px;
+  overflow: hidden;
+}
+#carouselHome .carousel .carousel-item img {
+  min-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#carouselHome .carousel .carousel-item .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.50);
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 5%;
 }
 
 /*Adocao*/
@@ -95,4 +129,13 @@ form button.btn {
 #footer a i {
   padding: 10px;
   font-size: 2em;
+}
+
+
+@media (max-width: 576px) { 
+/*Home*/
+#carouselHome .carousel-item {
+  height: 300px;
+}
+
 }

@@ -11,7 +11,8 @@
           </div>
           <div class="col-xs-12 col-sm-7">
             <div class="card-body">
-              <h5 class="card-title">Name Pet</h5>
+              <h5 class="card-title m-0">Name Pet</h5>
+              <p class="card-text m-0"><small class="text-muted">Tipo:</small></p>
               <div id="petDescricao">
                 <p class="card-text m-0">Descrição do pet Labore laborum ex ullamco est ipsum laboris minim proident. Mollit enim id Lorem fugiat laboris proident laboris veniam amet consectetur culpa aute do velit. Eu ipsum dolor laboris cupidatat. Commodo eiusmod quis ipsum duis pariatur ex officia aliquip anim excepteur et.</p>
                 <p class="mt-3">

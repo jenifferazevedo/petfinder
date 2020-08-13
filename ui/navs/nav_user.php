@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto d-flex align-items-center">
     <?php 
     if(isset($_GET['s']) && $_GET['s'] == 'Home') {
       echo '<li class="nav-item active">';
@@ -46,10 +46,12 @@
       echo '<li class="nav-item dropdown">';
     };
     ?>
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <?php echo'<img src="" alt="Foto Usuário">'; ?>
+      <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <?php 
+      if($_SESSION['petfinder-user']['image'] == 'n/a') echo'<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 1.5em"></i>'; 
+      else echo'<div class="rounded-circle imageUser"><img src="'.$_SESSION['petfinder-user']['image'].'" alt="Foto Usuário"></div>' ?>
       </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <div class="dropdown-menu" style="left: auto; right: 0px;" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" href="index.php?s=Perfil">Perfil</a>
       <a class="dropdown-item" href="index.php?s=CadastroPet">Cadastro Pet</a>
       <div class="dropdown-divider"></div>

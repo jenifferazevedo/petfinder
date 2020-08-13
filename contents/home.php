@@ -1,5 +1,5 @@
 <div id="home" class="container pb-5">
-  <div class="row">
+  <div class="row fadingScroll no-gutters">
     <div class="col-xl-12 parallax1 d-flex justify-content-center align-items-center">
       <div class="banner">
         <h3>O lar e família de um pet depende de você!</h3>
@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row rightScroll no-gutters">
     <div class="col-xl-8 p-0">
       <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -59,7 +59,7 @@
       </p>
     </div>
   </div>
-  <div class="row">
+  <div class="row leftScroll no-gutters">
     <div class="col-xl-4 p-5 d-flex justify-content-center align-items-center" style="color:#E8680C">
       <p>Nos últimos anos, os animais têm vindo a ser reconhecidos como membros das nossas famílias. A substituição 
         do termo animal de estimação para animal de companhia reflete, exatamente, a importância crescente das 

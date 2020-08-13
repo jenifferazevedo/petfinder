@@ -80,7 +80,7 @@
         </div>
         <button class="btn d-flex ml-auto fading" type="submit">Cadastrar</button>
       </form>
-      <div class="text-center">
+      <div class="text-center fadingScroll">
         <img src="./img/pets2.jpg" alt="Todo pet precisa de uma família!">
       </div>
 

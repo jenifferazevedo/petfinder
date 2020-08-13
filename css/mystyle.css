@@ -1,0 +1,176 @@
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.rightScroll, .leftScroll, .fadingScroll {
+  opacity: 0;
+}
+
+body {
+  font-size: 16px;
+}
+h1{
+  text-transform: uppercase;
+  color: #084436;
+  border-bottom: 3px solid #00F462 ;
+}
+form button.btn {
+  background-color: #E8680C;
+  color: white;
+  text-transform: uppercase;
+}
+
+/*Header*/
+#header {
+  background: url('../img/backgroundpet.png');
+  text-align: center;
+}
+#header img {
+  width: 40%;
+  min-width: 250px;
+}
+.navbar a.navbar-brand img{
+  width: 200px;
+}
+.navbar .navbar-nav {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.imageUser {
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+}
+.imageUser img {
+  width: 100%;
+  transform: translateY(-25%);
+  margin-top: 25%;
+}
+
+
+/*Home*/
+#home .carousel-item {
+  height: 450px;
+  overflow: hidden;
+}
+#home .carousel .carousel-item img {
+  min-width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#home .carousel .carousel-item .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.50);
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 5%;
+}
+.parallax1 {
+  background-image: url("../img/parallax1.jpg");
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner {
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 0.50);
+}
+.banner .btn {
+  text-transform: uppercase;
+}
+
+/*Adocao*/
+
+#adocao .adocaoImg {
+  height: 100%;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.11);
+}
+
+#petDescricao {
+  height: 80px;
+  overflow: hidden;
+  transition: height 1s ease-in-out;
+}
+
+/*Contacto*/
+#contacto {
+  padding-bottom: 100px;
+}
+
+/*Cadastro User*/
+#cadastrouser img {
+  width: 80%;
+  min-width: 300px;
+}
+
+/*Dashboard User*/
+.user-foto {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/*Footer*/
+#footer {
+  position: fixed-bottom;
+  background-color: #19ADFF;
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  flex-direction: row;
+  padding: 2px 10px;
+}
+#footer p a.voltar i {
+  padding-right: 0;
+  font-size: 1em;
+}
+#footer p a.voltar  {
+  white-space: nowrap;
+}
+#footer a  {
+  margin-left: auto;
+  color: #bfe4f8;
+}
+#footer a:hover  {
+  color: #084436;
+}
+#footer a i {
+  padding: 10px;
+  font-size: 2em;
+}
+
+
+@media (max-width: 576px) { 
+/*Home*/
+#carouselHome .carousel-item {
+  height: 300px;
+}
+
+}

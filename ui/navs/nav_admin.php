@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
       <?php if(isset($_GET['pg']) && $_GET['pg'] == 'Home') {
         echo '<li class="nav-item active">';
       } else if (isset($_GET['pg']) && $_GET['pg'] != 'Home') {

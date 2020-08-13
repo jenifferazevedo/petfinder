@@ -18,7 +18,7 @@
       else if ($pg == 'TablePet') include("./contents/petstable.php");
       else if ($pg == 'ChangeUser') include("./contents/userstable.php");
       else if ($pg == 'ChangePet') include("./contents/userstable.php");
-      else if ($pg == 'Perfil') include("./contents/perfil.php");
+      else if ($pg == 'Perfil') include("./contents/updateuser.php");
       else include("./contents/admindashboard.php");
     }
     else include("./contents/admindashboard.php");
@@ -30,7 +30,7 @@
       else if ($pg == 'SobreNos') include("./contents/sobrenos.php");
       else if ($pg == 'Adocao') include("./contents/adocao.php");
       else if ($pg == 'Contacto') include("./contents/contacto.php");
-      else if ($pg == 'Perfil') include("./contents/perfil.php");
+      else if ($pg == 'Perfil') include("./contents/updateuser.php");
       else if ($pg == 'CadastroPet') include("./contents/cadastropet.php");
       else include("./contents/admindashboard.php");
     }

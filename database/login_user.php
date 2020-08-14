@@ -5,20 +5,24 @@
     $query->execute(array($_POST['email'], $_POST['password']));
     if($query->rowCount()) {
       $user = $query->fetchAll(PDO::FETCH_ASSOC)[0];
-      if($user['tipo']) {
+      if($user['tipo'] == 1) {
         session_start();
-        $_SESSION['petfinder-admin'] = array($user['user_id'], $user['name'], $user['email'], $user['contact'], $user['city']);
-        header('Location: ../index.php');
+        $_SESSION['petfinder-admin'] = array($user['user_id'], $user['name'], $user['email'], $user['image']);
+        header('Location: ../index.php?pg=Home');
       }
       else{
         session_start();
-        $_SESSION['petfinder-user'] = array($user['user_id'], $user['name'], $user['email'], $user['contact'], $user['city']);
-        echo "<script>window.location = '../index.php';</script>";
+        $_SESSION['petfinder-user'] = array('id' => $user['user_id'], 'name' => $user['name'], 'email' => $user['email'], 'image' => $user['image'], 'contact' => $user['contact'],'city' => $user['city']);
+        header('Location: ../index.php?s=Home');
       }
     }
     else {
-      echo 'user não está cadastrado.';
+      echo '<script>alert("Erro: Dados incorretos ou usuário não cadastrado")
+      window.location.href = "../index.php?p=Login"
+      </script>';
     }
   }
-  else echo 'não tem post';
+  else echo '<script>alert("Erro: Dados não inseridos")
+  window.location.href = "../index.php?p=Login"
+  </script>';
 ?>

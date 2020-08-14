@@ -1,5 +1,5 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  <ul class="navbar-nav ml-auto">
+  <ul class="navbar-nav ml-auto d-flex align-items-center">
     <?php 
     if(isset($_GET['p']) && $_GET['p'] == 'Home') {
       echo '<li class="nav-item active">';
@@ -10,7 +10,7 @@
       echo '<li class="nav-item active">';
     };
     ?>
-      <a class="nav-link" href="index.php?p=Home">Home</a>
+      <a class="nav-link" href="index.php">Home</a>
     </li>
     <?php 
     if(isset($_GET['p']) && $_GET['p'] == 'SobreNos') {

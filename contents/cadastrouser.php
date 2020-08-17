@@ -1,4 +1,3 @@
-<?php session_start();?>
 <div id="cadastrouser" class="container pt-3 pb-5 fading">
   <div class="row">
     <div class="col-lg-12">

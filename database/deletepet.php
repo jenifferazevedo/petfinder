@@ -11,5 +11,5 @@ echo "aluno inserido!<br>";
 echo $sql . "<br>" . $e->getMessage();
 }
 echo "<a href=\"lista.php\">Voltar à lista de alunos</a>";
-$conn = null;
+include ('bdoff.php');
 ?>

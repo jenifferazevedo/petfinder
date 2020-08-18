@@ -28,7 +28,7 @@ h1{
   color: #084436;
   border-bottom: 3px solid #00F462 ;
 }
-form button.btn, button.btn.btn-icon {
+form button.btn, button.btn-icon {
   background-color: #E8680C;
   color: white;
   text-transform: uppercase;

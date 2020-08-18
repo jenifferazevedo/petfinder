@@ -11,7 +11,7 @@
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom01">Nome</label>
-            <input type="text" class="form-control" id="validationCustom01" value="" name="user_name" required>
+            <input type="text" class="form-control" id="validationCustom01" name="user_name" required>
             <div class="invalid-feedback">
               Digite seu nome.
             </div>
@@ -20,7 +20,7 @@
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
             <label for="validationCustom02">E-mail</label>
-            <input type="email" class="form-control" id="validationCustom02" value="" name="email" required>
+            <input type="email" class="form-control" id="validationCustom02" name="email" required>
             <div class="invalid-feedback">
               Digite um e-mail válido.
             </div>
@@ -29,31 +29,31 @@
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom03">Senha</label>
-            <input type="password" class="form-control" id="validationCustom03" value="" name="password" max="8" required>
+            <input type="password" class="form-control" id="validationCustom03" name="password" max="8" required>
             <div class="invalid-feedback">
-              Digite uma senha válida.
+              Digite uma senha válida de no máximo 8 caracteres.
             </div>
           </div>
         </div>
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
             <label for="validationCustom07">Foto</label>
-            <input type="text" class="form-control" id="validationCustom07" value="" name="user_foto" placeholder="URL">
+            <input type="text" class="form-control" id="validationCustom07" name="user_foto" placeholder="URL">
           </div>
         </div>
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom05">Telefone</label>
-            <input type="text" class="form-control" id="validationCustom05" value="" name="contact" maxlength="9" pattern="[0-9]{9}"  placeholder="XXXXXXXXX" required>
+            <input type="text" class="form-control" id="validationCustom05" name="contact" minLength="9" maxlength="12" pattern="[0-9]{9}"  placeholder="XXXXXXXXX" required>
             <div class="invalid-feedback">
-               Digite um número válido, sem espaços ou caracteres não numéricos.
+               Digite um número válido de 9 à 12 dígitos, sem espaços ou caracteres não numéricos.
             </div>
           </div>
         </div>
         <div class="form-row fading-right">
           <div class="col-12 mb-3">
             <label for="validationCustom04">Morada</label>
-            <input type="text" class="form-control" id="validationCustom04" value="" name="adress" placeholder="Rua: " required>
+            <input type="text" class="form-control" id="validationCustom04" name="adress" placeholder="Rua: " required>
             <div class="invalid-feedback">
                Digite um endereço válido.
             </div>
@@ -62,14 +62,14 @@
         <div class="form-row fading-left">
           <div class="col-6 mb-3">
             <label for="validationCustom05">Cep</label>
-            <input type="text" class="form-control" id="validationCustom05" value="" name="user_cep" maxlength="7" placeholder="XXXXXXX" required>
+            <input type="text" class="form-control" id="validationCustom05" name="user_cep" maxlength="7" placeholder="XXXXXXX" required>
             <div class="invalid-feedback">
-               Digite um endereço válido.
+               Digite um endereço válido de até 7 dígitos.
             </div>
           </div>
           <div class="col-6 mb-3">
             <label for="validationCustom06">Cidade</label>
-            <input type="text" class="form-control" id="validationCustom06" value="" name="user_city" required>
+            <input type="text" class="form-control" id="validationCustom06" name="user_city" required>
             <div class="invalid-feedback">
                Digite um endereço válido.
             </div>
@@ -96,13 +96,10 @@
       </div>
 
       <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
         'use strict';
         window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
           var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
           var validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
               if (form.checkValidity() === false) {

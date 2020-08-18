@@ -1,17 +1,35 @@
 <?php
 include ('bd.php');
-try{
-$pet_name=$_POST['pet_name'];
-$status=$_POST['status'];
-$tipo=$_POST['tipo'];
-$description=$_POST['description'];
-$pet_id=UUID();
-$sql = "INSERT INTO pet (pet_id, name, user_id, status, pet_type, description) VALUES ('$pet_id',$pet_name','$status','$tipo','$description')";
-$conn->exec($sql);
-echo "aluno inserido!<br>";
-}catch(PDOException $e){
-echo $sql . "<br>" . $e->getMessage();
+if(isset($_POST['pet_name'],$_POST['status'],$_POST['tipo'],$_POST['description']) && $conn != null) {
+  try{
+   $pet_name=$_POST['pet_name'];
+   $status_email=$_POST['status'];
+   $tipo=$_POST['tipo'];
+   $description=$_POST['description'];
+
+   $sql = "INSERT INTO  (name, user_id, status, pet_type, description) VALUES (:pet_name, :status, :tipo, :description);";
+
+   $stmt= $conn ->prepare ($sql);
+    $stmt -> bindValue (':pet_name', $pet_name );
+    $stmt -> bindValue (':status', $status);
+    $stmt -> bindValue (':tipo', $tipo);
+    $stmt -> bindValue (':description', $description );
+
+  $stmt->execute();
+      
+
+   
+    echo "<script>alert('Cadastro de pet realizado com sucesso');
+    window.location.href = '../index.php?p=Login'; 
+    </script>";
+    }catch(PDOException $e){
+    echo "<script>alert('Erro ao cadastrar!' ERRO - {$e->getMessage()});
+    window.location.href = '../index.php?p=Cadastro'; 
+    </script>";
+    }
 }
-echo "<a href=\"index.html\">Voltar à página inicial</a>";
-$conn = null;
+else {
+  echo "<script>window.location.href = '../index.php?p=Cadastro';</script>";
+}
+include ('bdoff.php');
 ?>

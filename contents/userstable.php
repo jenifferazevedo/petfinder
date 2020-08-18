@@ -22,14 +22,16 @@
             <td>@mdo</td>
             <td style="word-break: break-all;">lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</td>
             <td class="d-flex justify-content-center " style="border: 0;">
+              <button class="btn btn-icon d-flex"><i class="fa fa-plus" aria-hidden="true"></i></button>
               <form action="index.php?p=Admin&pg=ChangeUser" method="post">
                 <input type="hidden" name="id" value="id">
-                <button class="btn d-flex mr-1" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <button class="btn d-flex mx-1" type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
               </form>
               <form action="delete" method="post">
                 <input type="hidden" name="id" value="id">
                 <button class="btn d-flex" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
               </form>
+
             </td>
           </tr>
         </tbody>

@@ -7,7 +7,7 @@
       $user = $query->fetchAll(PDO::FETCH_ASSOC)[0];
       if($user['tipo'] == 1) {
         session_start();
-        $_SESSION['petfinder-admin'] = array($user['user_id'], $user['name'], $user['email'], $user['image']);
+        $_SESSION['petfinder-admin'] = array('id' => $user['user_id'], 'name' => $user['name'], 'email' => $user['email'], 'image' => $user['image']);
         header('Location: ../index.php?pg=Home');
       }
       else{

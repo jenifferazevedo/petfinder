@@ -13,7 +13,7 @@
   else if(isset($_SESSION['petfinder-admin']) && is_array($_SESSION['petfinder-admin'])) {
     if(isset($_GET['pg'])){
       $pg = $_GET['pg'];
-      if($pg == 'Home') include("./contents/admindashboard.php");
+      if($pg == 'Home') include("./contents/home.php");
       else if ($pg == 'TableUser') include("./contents/userstable.php");
       else if ($pg == 'TablePet') include("./contents/petstable.php");
       else if ($pg == 'ChangeUser') include("./contents/userstable.php");
@@ -26,7 +26,7 @@
   else if(isset($_SESSION['petfinder-user']) && is_array($_SESSION['petfinder-user'])) {
     if(isset($_GET['s'])){
       $pg = $_GET['s'];
-      if($pg == 'Home') include("./contents/userdashboard.php");
+      if($pg == 'Home') include("./contents/home.php");
       else if ($pg == 'SobreNos') include("./contents/sobrenos.php");
       else if ($pg == 'Adocao') include("./contents/adocao.php");
       else if ($pg == 'Contacto') include("./contents/contacto.php");

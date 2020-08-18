@@ -2,8 +2,14 @@
   <div class="row fadingScroll no-gutters">
     <div class="col-xl-12 parallax1 d-flex justify-content-center align-items-center">
       <div class="banner">
+        <?php if(isset($_SESSION['petfinder-user']) && is_array($_SESSION['petfinder-user'])): ?>
+          <h3>Bem vindo, <?php echo $_SESSION['petfinder-user']['name'] ?>!</h3>
+        <?php elseif(isset($_SESSION['petfinder-admin']) && is_array($_SESSION['petfinder-admin'])): ?>
+          <h3>Bem vindo! <?php echo $_SESSION['petfinder-admin']['name'] ?></h3>
+        <?php else: ?>
         <h3>O lar e família de um pet depende de você!</h3>
         <a href="index.php?p=Adocao"><button class="btn btn-success">Adote um pet</button></a>
+        <?php endif; ?>
       </div>
     </div>
   </div>

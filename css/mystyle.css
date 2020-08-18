@@ -28,7 +28,7 @@ h1{
   color: #084436;
   border-bottom: 3px solid #00F462 ;
 }
-form button.btn {
+form button.btn, button.btn.btn-icon {
   background-color: #E8680C;
   color: white;
   text-transform: uppercase;
@@ -91,6 +91,8 @@ form button.btn {
 }
 .banner {
   color: white;
+  max-width: 400px;
+  word-wrap: break-word;
   text-align: center;
   padding: 20px 10px;
   background-color: rgba(0, 0, 0, 0.50);

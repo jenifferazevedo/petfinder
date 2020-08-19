@@ -6,7 +6,9 @@
         <div class="row no-gutters">
           <div class="col-xs-12 col-sm-5 p-2 d-flex justify-content-center">
             <div class="adocaoImg rounded-circle">
-              <img src="./img/petfinder_logo.svg" class="w-100" alt="...">
+              <?php //if($pet_image == "n/a") echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem Pet"'>
+              //else echo'<img class="w-100"><img src="'.$pet_image.'" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet"></div>' ?>
+              <img src="./img/petfinder_logoassda.svg" class="w-100" onerror="this.onerror=null;this.src='./img/petfinderImgError.png';" alt="...">
             </div>
           </div>
           <div class="col-xs-12 col-sm-7">

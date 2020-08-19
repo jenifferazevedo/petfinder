@@ -9,6 +9,7 @@
     else if ($pag == 'Contacto') include("./contents/contacto.php");
     else if ($pag == 'Login') include("./contents/login.php");
     else if ($pag == 'Cadastro') include("./contents/cadastrouser.php");
+    else include("./contents/home.php");
   }
   else if(isset($_SESSION['petfinder-admin']) && is_array($_SESSION['petfinder-admin'])) {
     if(isset($_GET['pg'])){
@@ -20,9 +21,9 @@
       else if ($pg == 'ChangePet') include("./contents/userstable.php");
       else if ($pg == 'Perfil') include("./contents/viewuser.php");
       else if ($pg == 'Detalhes') include("./contents/viewuser.php");
-      else include("./contents/admindashboard.php");
+      else include("./contents/home.php");
     }
-    else include("./contents/admindashboard.php");
+    else include("./contents/home.php");
   }
   else if(isset($_SESSION['petfinder-user']) && is_array($_SESSION['petfinder-user'])) {
     if(isset($_GET['s'])){
@@ -33,9 +34,9 @@
       else if ($pg == 'Contacto') include("./contents/contacto.php");
       else if ($pg == 'Perfil') include("./contents/viewuser.php");
       else if ($pg == 'CadastroPet') include("./contents/cadastropet.php");
-      else include("./contents/admindashboard.php");
+      else include("./contents/home.php");
     }
-    else include("./contents/admindashboard.php");
+    else include("./contents/home.php");
   }
   else include("./contents/home.php");
   include("./ui/footer.php");

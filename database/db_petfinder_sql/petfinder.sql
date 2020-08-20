@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Ago-2020 às 20:18
+-- Tempo de geração: 18-Ago-2020 às 21:11
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `pet` (
   `pet_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `image` text NOT NULL DEFAULT 'n/a',
+  `pet_name` varchar(100) NOT NULL,
+  `pet_image` text NOT NULL DEFAULT '\'n/a\'',
   `user_id` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `pet_type` int(11) NOT NULL,
+  `status` set('ativo','inativo') NOT NULL DEFAULT 'ativo',
+  `pet_type` int(11) NOT NULL DEFAULT 3,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -73,18 +73,19 @@ CREATE TABLE `users` (
   `adress` varchar(100) NOT NULL,
   `post_code` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `tipo` enum('0','1') NOT NULL DEFAULT '0'
+  `tipo` enum('0','1') NOT NULL DEFAULT '0',
+  `status` set('ativo','inativo') NOT NULL DEFAULT 'ativo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `image`, `contact`, `adress`, `post_code`, `city`, `tipo`) VALUES
-(5, 'jeniffer azevedo', 'jeniffer@email.com', '123456', 'n/a', '930-432-234', 'rua sobe e desce', '2345-098', 'porto', '1'),
-(6, 'jose joaquim', 'josej@email.com', '123456', 'n/a', '888-999-000-', 'Rua Sobe Desce, 23', '3421-980', 'braga', '0'),
-(7, 'Joelma Freitas', 'joelmapt@gmail.com', '123456', 'n/a', '900-000-000-', 'sobe desce', '4000-111', 'porto', '0'),
-(8, 'Gilmar', 'gilmarpt@gmail.com', '123456', 'https://scontent.fopo1-1.fna.fbcdn.net/v/t31.0-8/27628601_1883030305042003_1574064750041286583_o.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_ohc=0CFDKelPwE4AX8nVvVM&_nc_ht=scontent.fopo1-1.fna&oh=bcb04f1614ef3ea1a63ef232453d8ebb&oe=5F593BD0', '900-000-000-', 'rua sobe e desce', '8000-999', 'aveiro', '0');
+INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `image`, `contact`, `adress`, `post_code`, `city`, `tipo`, `status`) VALUES
+(5, 'jeniffer azevedo', 'jeniffer@email.com', '123456', 'n/a', '930-432-234', 'rua sobe e desce', '2345-098', 'porto', '1', 'ativo'),
+(6, 'jose joaquim', 'josej@email.com', '123456', 'n/a', '888-999-000-', 'Rua Sobe Desce, 23', '3421-980', 'braga', '0', 'ativo'),
+(7, 'Joelma Freitas', 'joelmapt@gmail.com', '123456', 'n/a', '900-000-000-', 'sobe desce', '4000-111', 'porto', '0', 'ativo'),
+(8, 'Gilmar', 'gilmarpt@gmail.com', '123456', 'https://scontent.fopo1-1.fna.fbcdn.net/v/t31.0-8/27628601_1883030305042003_1574064750041286583_o.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_ohc=0CFDKelPwE4AX8nVvVM&_nc_ht=scontent.fopo1-1.fna&oh=bcb04f1614ef3ea1a63ef232453d8ebb&oe=5F593BD0', '900-000-000-', 'rua sobe e desce', '8000-999', 'aveiro', '0', 'ativo');
 
 --
 -- Índices para tabelas despejadas
@@ -118,7 +119,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pet_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `type_pet`

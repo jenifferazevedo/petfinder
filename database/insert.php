@@ -28,7 +28,7 @@ if(isset($_POST['user_name'],$_POST['email'],$_POST['password'],$_POST['contact'
     window.location.href = '../index.php?p=Login'; 
     </script>";
     }catch(PDOException $e){
-    echo "<script>alert('Erro ao acessar ao cadastrar!' ERRO - {$e->getMessage()});
+    echo "<script>alert('Erro ao cadastrar!' ERRO - {$e->getMessage()});
     window.location.href = '../index.php?p=Cadastro'; 
     </script>";
     }

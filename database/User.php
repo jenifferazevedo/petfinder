@@ -1,6 +1,9 @@
 <?php
-require('./bd.php');
-require('./database/bd.php');
+if (!file_exists('./bd.php')) {
+  require('./database/bd.php');
+} else if (file_exists('./bd.php')) {
+  require('./bd.php');
+}
 class User extends Conn
 {
   public $user_id;
@@ -18,6 +21,7 @@ class User extends Conn
   public $update_at;
   public $sql;
   public $stmt;
+  public $e;
 
   /*function __construct()
   {
@@ -52,7 +56,7 @@ class User extends Conn
         $this->user_name = $_POST['user_name'];
         $this->user_email = $_POST['email'];
         $this->password = $_POST['password'];
-        $this->image = $_POST['user_foto'];
+        $this->image = strlen($_POST['user_foto']) == 0 ? 'n/a' : $_POST['user_foto'];
         $this->contact = $_POST['contact'];
         $this->adress = $_POST['adress'];
         $this->user_cep = $_POST['user_cep'];
@@ -71,9 +75,6 @@ class User extends Conn
         $this->stmt->bindValue(':user_city', $this->user_city);
         $this->stmt->bindValue(':tipo', $this->tipo);
         $this->stmt->execute();
-        echo "<script>alert('Cadastro realizado com sucesso');
-          window.location.href = '../index.php?p=Login'; 
-          </script>";
       } catch (PDOException $e) {
         echo "<script>alert('Erro ao cadastrar!' ERRO - {$e->getMessage()});
           window.location.href = '../index.php?p=Cadastro'; 
@@ -82,13 +83,43 @@ class User extends Conn
     } else {
       "<script>window.location.href = '../index.php?p=Cadastro';</script>";
     }
-    $this->disconnect();
   }
-  public function selectAllUseInFrontEnd()
+  public function selectAllInFrontEnd($table)
   {
     $this->connectInFrontEnd();
-    $this->stmt = $this->conn->prepare("SELECT * FROM users");
-    $this->stmt->execute();
-    $this->disconnect();
+    try {
+      $this->stmt = $this->conn->prepare("SELECT * FROM $table");
+      $this->stmt->execute();
+    } catch (Exception $e) {
+      echo "<script>alert('Erro ao listar!' ERRO - {$e->getMessage()});
+      window.location.href = '../index.php'; 
+      </script>";
+    }
+  }
+  public function selectWhereInFrontEnd($table, $column, $value)
+  {
+    $this->connectInFrontEnd();
+    try {
+      $this->stmt = $this->conn->prepare("SELECT * FROM $table WHERE $column=:value");
+      $this->stmt->bindValue(':value', $value);
+      $this->stmt->execute();
+    } catch (Exception $e) {
+      echo "<script>alert('Erro ao listar!' ERRO - {$e->getMessage()});
+        window.location.href = '../index.php'; 
+      </script>";
+    }
+  }
+  public function delete($table, $column, $value)
+  {
+    $this->connect();
+    try {
+      $this->stmt = $this->conn->prepare("DELETE FROM $table WHERE $column=:value");
+      $this->stmt->bindValue(':value', $value);
+      $this->stmt->execute();
+    } catch (PDOException $e) {
+      echo "<script>alert('Erro ao deletar!' ERRO - {$e->getMessage()});
+        window.location.href = '../index.php?pg=TableUser'; 
+        </script>";
+    }
   }
 }

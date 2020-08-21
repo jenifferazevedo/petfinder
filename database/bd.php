@@ -17,7 +17,7 @@ class Conn
     } catch (PDOException $e) {
       echo "ERRO - {$e->getMessage()})";
       $this->conn = null;
-      exit();
+      exit;
     }
   }
   public function connectInFrontEnd()
@@ -27,7 +27,7 @@ class Conn
     $this->username = $user_database;
     $this->password = $senha_database;
     try {
-      $this->conn = new PDO("mysql:host=$servername;dbname=petfinder", $username, $password);
+      $this->conn = new PDO("mysql:host=" . $this->servername . ";dbname=petfinder", $this->username, $this->password);
       $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo " ERRO - {$e->getMessage()})";
@@ -37,6 +37,6 @@ class Conn
   }
   public function disconnect()
   {
-    exit();
+    exit;
   }
 }

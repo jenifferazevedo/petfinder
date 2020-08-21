@@ -84,11 +84,11 @@ class User extends Conn
       "<script>window.location.href = '../index.php?p=Cadastro';</script>";
     }
   }
-  public function selectAllInFrontEnd($table)
+  public function selectAllInFrontEnd()
   {
     $this->connectInFrontEnd();
     try {
-      $this->stmt = $this->conn->prepare("SELECT * FROM $table");
+      $this->stmt = $this->conn->prepare("SELECT * FROM users");
       $this->stmt->execute();
     } catch (Exception $e) {
       echo "<script>alert('Erro ao listar!' ERRO - {$e->getMessage()});
@@ -96,11 +96,11 @@ class User extends Conn
       </script>";
     }
   }
-  public function selectWhereInFrontEnd($table, $column, $value)
+  public function selectWhereInFrontEnd($column, $value)
   {
     $this->connectInFrontEnd();
     try {
-      $this->stmt = $this->conn->prepare("SELECT * FROM $table WHERE $column=:value");
+      $this->stmt = $this->conn->prepare("SELECT * FROM users WHERE $column=:value");
       $this->stmt->bindValue(':value', $value);
       $this->stmt->execute();
     } catch (Exception $e) {
@@ -109,17 +109,36 @@ class User extends Conn
       </script>";
     }
   }
-  public function delete($table, $column, $value)
+  public function delete($column, $value)
   {
     $this->connect();
     try {
-      $this->stmt = $this->conn->prepare("DELETE FROM $table WHERE $column=:value");
+      $this->stmt = $this->conn->prepare("DELETE FROM users WHERE $column=:value");
       $this->stmt->bindValue(':value', $value);
       $this->stmt->execute();
     } catch (PDOException $e) {
       echo "<script>alert('Erro ao deletar!' ERRO - {$e->getMessage()});
         window.location.href = '../index.php?pg=TableUser'; 
         </script>";
+    }
+  }
+  public function changeStatus($status, $column, $value)
+  {
+    $this->connect();
+    if (isset($_POST['id']) && $this->conn != null) {
+      try {
+        $this->sql = "UPDATE users SET status=:status WHERE $column=:value";
+        $this->stmt = $this->conn->prepare($this->sql);
+        $this->stmt->bindValue(':status', $status);
+        $this->stmt->bindValue(':value', $value);
+        $this->stmt->execute();
+      } catch (PDOException $e) {
+        echo "<script>alert('Erro ao cadastrar!' ERRO - {$e->getMessage()});
+          window.history.go(-1);
+          </script>";
+      }
+    } else {
+      "<script>window.location.href = '../index.php';</script>";
     }
   }
 }

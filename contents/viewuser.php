@@ -12,7 +12,7 @@ else {
   <?php
   include('./database/User.php');
   $users = new User();
-  $users->selectWhereInFrontEnd('users', 'user_id', $id);
+  $users->selectWhereInFrontEnd('user_id', $id);
   $user = $users->stmt->fetch();
 
   ?>
@@ -49,6 +49,7 @@ else {
 
         <form id="delete" action="./database/delete.php" method="post" class="py-2 d-flex">
           <input type="hidden" name="user" value="">
+          <input type="hidden" name="status" value="<?php echo $user['status'] ?>">
           <input type="hidden" name="id" value="<?php echo $user['user_id'] ?>">
           <button class="btn btn-icon d-flex ml-auto mr-1" type="button" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil" aria-hidden="true"></i></button>
           <?php

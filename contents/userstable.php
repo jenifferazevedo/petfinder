@@ -22,7 +22,7 @@
           <?php
           include('./database/User.php');
           $users = new User();
-          $users->selectAllInFrontEnd('users');
+          $users->selectAllInFrontEnd();
           $data = $users->stmt->fetchAll();
           foreach ($data as $row) : ?>
             <tr>

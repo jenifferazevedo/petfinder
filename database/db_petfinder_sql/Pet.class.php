@@ -90,4 +90,18 @@ class Pet extends Conn
         </script>";
     }
   }
+  // fake delete apaga o pet para os usuários, sem apagá-lo da database - tentativa
+  public function fakeDelete($table, $column, $value){
+
+    $this->connect();
+    try {  // A column deve ser o user_id ou pet_id e o value o valor
+      $this->stmt = $this->conn->prepare("UPDATE $table SET $status='inativo' WHERE $column=$value");
+      $this->stmt->bindValue(':value', $value); //Não precisa do bind column?
+      $this->stmt->execute();
+    } catch (PDOException $e) {
+      echo "<script>alert('Erro ao deletar!' ERRO - {$e->getMessage()});
+        window.location.href = '../index.php?pg=TableUser'; 
+        </script>";
+    }
+  }
 }

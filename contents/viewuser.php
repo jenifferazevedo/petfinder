@@ -75,7 +75,9 @@ else {
           </button>
         </div>
         <div class="modal-body">
-          <form class="needs-validation" novalidate action="./database/updateuser.php" method="post">
+          <form class="needs-validation" novalidate action="./database/update.php" method="post">
+            <input type="hidden" name="user" value="">
+            <input type="hidden" name="id" value="<?php echo $user['user_id'] ?>">
             <div class="form-row fading-left">
               <div class="col-12 mb-3">
                 <label for="validationCustom01">Nome</label>
@@ -145,13 +147,27 @@ else {
             </div>
             <?php if (isset($_SESSION['petfinder-admin'])) : ?>
               <div class="form-row fading-right">
-                <div class="col-12 mb-3">
+                <label for="statusRadio">Status:</label>
+                <div id="statusRadio" class="col-12 mb-3">
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="0" <?php echo ($user['tipo'] == 0) ? 'checked' : '' ?>>
+                    <input class="form-check-input" type="radio" name="status" id="inlineRadioTipo1" value="ativo" <?php echo ($user['status'] == 'ativo') ? 'checked' : '' ?>>
+                    <label class="form-check-label" for="inlineRadiTipo1">Ativo</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="status" id="inlineRadioTipo2" value="inativo" <?php echo ($user['status'] == 'inativo') ? 'checked' : '' ?>>
+                    <label class="form-check-label" for="inlineRadioTipo2">Inativo</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row fading-left">
+                <label for="tipoRadio">Tipo:</label>
+                <div id="tipoRadio" class="col-12 mb-3">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="0" <?php echo ($user['tipo'] == 0) ? 'checked' : '' ?>>
                     <label class="form-check-label" for="inlineRadio1">User</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="1" <?php echo ($user['tipo'] == 1) ? 'checked' : '' ?>>
+                    <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="1" <?php echo ($user['tipo'] == 1) ? 'checked' : '' ?>>
                     <label class="form-check-label" for="inlineRadio2">Admin</label>
                   </div>
                 </div>

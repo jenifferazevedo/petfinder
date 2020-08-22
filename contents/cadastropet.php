@@ -6,7 +6,8 @@
           <h1>Cadastro Pet</h1>
         </div>
       </div>
-      <form class="needs-validation" novalidate action="./database/insertpet.php" method="post">
+      <form class="needs-validation" novalidate action="./database/create.php" method="post">
+        <input type="hidden" name="pet">
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom01">Nome</label>

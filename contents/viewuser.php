@@ -4,7 +4,7 @@ else if (isset($_SESSION['petfinder-admin'], $_GET['pg']) && $_GET['pg'] == 'Per
 else if (isset($_SESSION['petfinder-admin'], $_POST['user_id'], $_GET['pg']) && $_GET['pg'] == 'Detalhes' && is_array($_SESSION['petfinder-admin'])) $id = $_POST['user_id'];
 else {
   $id = null;
-  header('Location: ../index.php?pg=Home');
+  header('Location: ./index.php');
 }
 ?>
 <?php if ($id !== null) :
@@ -12,6 +12,7 @@ else {
   <?php
   include('./database/User.php');
   $users = new User();
+  $users->connectInFrontEnd();
   $users->selectWhereInFrontEnd('user_id', $id);
   $user = $users->stmt->fetch();
 

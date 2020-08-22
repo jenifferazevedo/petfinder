@@ -1,6 +1,29 @@
 <div id="usertable" class="container pb-5">
   <div class="row">
     <div class="col-12">
+      <form action="./index.php?pg=TableUser" method="post" class="mt-3">
+        <div class="input-group">
+          <select class="custom-select" id="inputGroupSelect04" style="flex:0.1;min-width:120px;" name="search">
+            <option value="user_id" selected>ID</option>
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="city">Cidade</option>
+            <option value="contact">Contacto</option>
+            <option value="tipo">Tipo</option>
+            <option value="status">Status</option>
+            <option value="create_at">Create_at</option>
+            <option value="update_at">Update_at</option>
+          </select>
+          <input type="text flex-grow-1" class="form-control flex-grow-1" name="searchText" id="searchText">
+          <select class="custom-select" id="inputGroupSelect05" style="flex:0.1;min-width:120px;" name="order">
+            <option value="ASC" selected>ASC</option>
+            <option value="DESC">DESC</option>
+          </select>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </form>
       <div class="mt-3 text-right">
         <a href="./index.php?pg=Cadastro"><button class="btn btn-icon">ADD USER</button></a>
       </div>
@@ -22,7 +45,12 @@
           <?php
           include('./database/User.php');
           $users = new User();
-          $users->selectAllInFrontEnd('users');
+          $users->connectInFrontEnd();
+          if (isset($_POST['search'], $_POST['searchText'], $_POST['order'])) {
+            $users->filterUser($_POST['search'], $_POST['searchText'], $_POST['order']);
+          } else {
+            $users->selectAllInFrontEnd();
+          }
           $data = $users->stmt->fetchAll();
           foreach ($data as $row) : ?>
             <tr>

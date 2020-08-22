@@ -15,7 +15,7 @@ if (isset($_POST['id'], $_POST['user'])) {
     </script>";
   }
   $novoUser->disconnect();
-} else if (isset($_GET['CreatePet'])) {
+} else if (isset($_GET['pet'])) {
   //pet;
 } else {
   header('Location: ../index.php');

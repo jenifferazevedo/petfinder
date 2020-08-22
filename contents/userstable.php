@@ -4,7 +4,7 @@
       <form action="./index.php?pg=TableUser" method="post" class="mt-3">
         <div class="input-group">
           <select class="custom-select" id="inputGroupSelect04" style="flex:0.1;min-width:120px;" name="search">
-            <option value="user_id" selected>Buscar...</option>
+            <option value="user_id" selected>ID</option>
             <option value="name">Name</option>
             <option value="email">Email</option>
             <option value="city">Cidade</option>
@@ -52,7 +52,6 @@
             $users->selectAllInFrontEnd();
           }
           $data = $users->stmt->fetchAll();
-          echo $data[0]['name'];
           foreach ($data as $row) : ?>
             <tr>
               <th scope="row"><?php echo $row['user_id'] ?></th>

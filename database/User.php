@@ -22,6 +22,7 @@ class User extends Conn
   public $sql;
   public $stmt;
   public $e;
+  public $search;
 
   /*function __construct()
   {
@@ -112,8 +113,7 @@ class User extends Conn
   {
     $this->connect();
     try {
-      $this->stmt = $this->conn->prepare("DELETE FROM users WHERE :column=:value");
-      $this->stmt->bindValue(':column', $column);
+      $this->stmt = $this->conn->prepare("DELETE FROM users WHERE $column=:value");
       $this->stmt->bindValue(':value', $value);
       $this->stmt->execute();
     } catch (PDOException $e) {
@@ -127,9 +127,8 @@ class User extends Conn
     $this->connect();
     if (isset($_POST['id']) && $this->conn != null) {
       try {
-        $this->sql = "UPDATE users SET status=:status WHERE :column=:value";
+        $this->sql = "UPDATE users SET status=:status WHERE $column=:value";
         $this->stmt = $this->conn->prepare($this->sql);
-        $this->stmt->bindValue(':column', $column);
         $this->stmt->bindValue(':status', $status);
         $this->stmt->bindValue(':value', $value);
         $this->stmt->execute();
@@ -184,13 +183,9 @@ class User extends Conn
   }
   public function filterUser($column, $value, $order)
   {
-    //o value não é lido de jeito maneira nenhuma com o bind.
-    //jeito que funciona = "SELECT * FROM users WHERE name='" . "$value" . "'"
     try {
-      $this->stmt = $this->conn->prepare("SELECT * FROM users WHERE name='" . ":value" . "'");
-      $this->stmt->bindValue(':column', $column);
-      $this->stmt->bindValue(":value", $value);
-      $this->stmt->bindValue(':order', $order);
+      $this->stmt = $this->conn->prepare("SELECT * FROM users WHERE $column LIKE :value ORDER BY $column $order");
+      $this->stmt->bindValue(':value', "%" . $value . "%", PDO::PARAM_STR);
       $this->stmt->execute();
     } catch (Exception $e) {
       echo "<script>alert('Erro ao listar!' ERRO - {$e->getMessage()});

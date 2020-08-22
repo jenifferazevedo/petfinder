@@ -122,14 +122,13 @@ class User extends Conn
         </script>";
     }
   }
-  public function changeStatus($status, $column, $value)
+  public function changeStatus($column, $value)
   {
     $this->connect();
     if (isset($_POST['id']) && $this->conn != null) {
       try {
-        $this->sql = "UPDATE users SET status=:status WHERE $column=:value";
+        $this->sql = "UPDATE users SET status='inativo' WHERE $column=:value";
         $this->stmt = $this->conn->prepare($this->sql);
-        $this->stmt->bindValue(':status', $status);
         $this->stmt->bindValue(':value', $value);
         $this->stmt->execute();
       } catch (PDOException $e) {

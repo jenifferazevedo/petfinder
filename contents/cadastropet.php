@@ -51,7 +51,7 @@
         <div class="form-row fading-right">
           <div class="mb-3 w-100">
             <label for="validationTextarea">Textarea</label>
-            <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="description" required></textarea>
+            <textarea class="form-control" id="validationTextarea" placeholder="Digite uma descrição do pet..." name="description" required></textarea>
             <div class="invalid-feedback">
               Digite uma descrição do pet!
             </div>

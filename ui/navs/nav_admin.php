@@ -32,8 +32,10 @@
       echo '<li class="nav-item dropdown">';
     };
     ?>
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 1.5em"></i>
+    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <?php
+      if ($_SESSION['petfinder-admin']['image'] == 'n/a') echo '<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 1.5em"></i>';
+      else echo '<div class="rounded-circle imageUser"><img style="height:100%;" src="' . $_SESSION['petfinder-admin']['image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderIcon.svg\';" alt="Foto Usuário"></div>' ?>
     </a>
     <div class="dropdown-menu" style="left: auto; right: 0px;" aria-labelledby="navbarDropdown">
       <a class="dropdown-item" href="index.php?pg=Perfil">Perfil</a>

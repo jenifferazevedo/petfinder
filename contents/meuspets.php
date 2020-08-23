@@ -40,7 +40,7 @@ else {
                 <div class="d-flex justify-content-end align-self-stretch">
                   <form action="index.php?s=DetalhePet" method="post" onsubmit="">
                     <input type="hidden" name="pet_id" value="<?php echo $p['pet_id'] ?>">
-                    <button type="submit" class="btn d-flex" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus py-1" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn d-flex"><i class="fa fa-plus py-1" aria-hidden="true"></i></button>
                   </form>
                   <form action="./database/delete.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $p['pet_id'] ?>">
@@ -56,14 +56,13 @@ else {
             </div>
           </div>
         </div>
-  </div>
-<?php
+      <?php
       endforeach;
     else :
-?>
-<div class="pt-3 text-center">
-  <h3>Nenhum pet cadastrado!</h3>
-</div>
-<?php endif ?>
-</div>
+      ?>
+      <div class="pt-3 text-center">
+        <h3>Nenhum pet cadastrado!</h3>
+      </div>
+    <?php endif ?>
+  </div>
 </div>

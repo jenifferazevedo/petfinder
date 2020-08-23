@@ -8,7 +8,7 @@
         <div class="input-group">
           <select class="custom-select" id="inputGroupSelect04" style="flex:0.1;min-width:120px;" name="search">
             <option value="pet_id" selected>ID</option>
-            <option value="name">Name</option>
+            <option value="pet_name">Name</option>
             <option value="city">Cidade</option>
             <option value="user_id">User_id</option>
             <option value="status">Status</option>
@@ -31,7 +31,7 @@
         $pet = new Pet();
         $pet->connectInFrontEnd();
         if (isset($_POST['search'], $_POST['searchText'], $_POST['order'])) {
-          $pet->filterUser($_POST['search'], $_POST['searchText'], $_POST['order']);
+          $pet->filterPet($_POST['search'], $_POST['searchText'], $_POST['order']);
         } else {
           $pet->selectAllInFrontEnd();
         }

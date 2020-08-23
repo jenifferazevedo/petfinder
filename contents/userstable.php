@@ -29,7 +29,7 @@
       </form>
       <table class="table table-bordered mt-3">
         <?php
-        include('./database/User.php');
+        include('./database/User.class.php');
         $users = new User();
         $users->connectInFrontEnd();
         if (isset($_POST['search'], $_POST['searchText'], $_POST['order'])) {

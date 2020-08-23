@@ -74,7 +74,8 @@ else {
         <div class="modal-body">
           <form class="needs-validation" novalidate action="./database/update.php" method="post">
             <input type="hidden" name="pet" value="">
-            <input type="hidden" name="id" value="<?php echo $pet['pet_id'] ?>">
+            <input type="hidden" name="pet_id" value="<?php echo $pet['pet_id'] ?>">
+            <input type="hidden" name="id" value="<?php echo $pet['user_id'] ?>">
             <div class="form-row fading-left">
               <div class="col-12 mb-3">
                 <label for="validationCustom01">Nome</label>
@@ -118,7 +119,7 @@ else {
             <div class="form-row fading-right">
               <div class="mb-3 w-100">
                 <label for="validationTextarea">Textarea</label>
-                <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="description" required><?php echo $pet['description'] ?></textarea>
+                <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="description" value="<?php echo $pet['description'] ?>" required><?php echo $pet['description'] ?></textarea>
                 <div class="invalid-feedback">
                   Digite uma descrição do pet!
                 </div>

@@ -3,7 +3,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password'
   require("bd.php");
   $connect = new Conn();
   $connect->connect();
-  $query = $connect->conn->prepare("SELECT * FROM users WHERE email=? AND password=?");
+  $query = $connect->conn->prepare("SELECT * FROM users WHERE email=? AND password=? AND status='ativo'");
   $query->execute(array($_POST['email'], $_POST['password']));
   if ($query->rowCount()) {
     $user = $query->fetchAll(PDO::FETCH_ASSOC)[0];

@@ -1,11 +1,17 @@
 <?php
 session_start();
 $classepg;
-isset($_POST['user']) ? $classepg = require('./User.php') : $classepg = require('./Pet.class.php');
+isset($_POST['user']) ? $classepg = require('./User.class.php') : $classepg = require('./Pet.class.php');
 if (isset($_POST['user'])) {
   $novoUser = new User();
   $novoUser->connect();
-  $novoUser->create();
+  $novoUser->selectWhereInFrontEnd('email', $_POST['email']);
+  if ($novoUser->stmt->rowCount()) {
+    echo "<script>alert('Email já cadastrado!');
+    window.location.href = '../index.php?p=Login'; 
+    </script>";
+  } else $novoUser->create();
+
   if (isset($_SESSION['petfinder-admin']) && is_array($_SESSION['petfinder-admin'])) {
     header('Location: ../index.php?pg=TableUser');
   } else {
@@ -17,6 +23,7 @@ if (isset($_POST['user'])) {
 } else if (isset($_POST['pet'])) {
   $newPet = new Pet();
   $newPet->connect();
+
   if (isset($_SESSION['petfinder-admin']) || isset($_SESSION['petfinder-user'])) {
     $id = isset($_SESSION['petfinder-admin']) ? $_SESSION['petfinder-admin']['id'] : $_SESSION['petfinder-user']['id'];
     try {

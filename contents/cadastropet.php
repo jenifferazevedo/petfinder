@@ -6,7 +6,8 @@
           <h1>Cadastro Pet</h1>
         </div>
       </div>
-      <form class="needs-validation" novalidate action="./database/insertpet.php" method="post">
+      <form class="needs-validation" novalidate action="./database/create.php" method="post">
+        <input type="hidden" name="pet">
         <div class="form-row fading-left">
           <div class="col-12 mb-3">
             <label for="validationCustom01">Nome</label>
@@ -22,22 +23,35 @@
             <input type="text" class="form-control" id="validationCustom07" value="" name="pet_image" placeholder="URL">
           </div>
         </div>
-        <div class="col-md-3 mb-3 p-0 fading-left">
-          <label for="validationCustom04">Tipo do pet</label>
-          <select class="custom-select" id="validationCustom04" name="pet_type" require>
-            <option selected disabled value="">Tipo:</option>
-            <option value="1">Gato</option>
-            <option value="2">Cão</option>
-            <option value="3">Outro</option>
-          </select>
-          <div class="invalid-feedback">
-            Selecione um tipo
+        <div class="form-row fading-left">
+          <div class="col-6 mb-3">
+            <label for="validationCustom04">Tipo do pet</label>
+            <select class="custom-select" id="validationCustom04" name="pet_type" require>
+              <option selected disabled value="">Tipo:</option>
+              <option value="1">Gato</option>
+              <option value="2">Cão</option>
+              <option value="3">Outro</option>
+            </select>
+            <div class="invalid-feedback">
+              Selecione um tipo
+            </div>
+          </div>
+          <div class="col-6 mb-3">
+            <label for="validationCustom04">Sexo do pet:</label>
+            <select class="custom-select" id="validationCustom04" name="sexo" require>
+              <option selected disabled value="">Sexo:</option>
+              <option value="f">Fêmea</option>
+              <option value="m">Macho</option>
+            </select>
+            <div class="invalid-feedback">
+              Selecione um tipo
+            </div>
           </div>
         </div>
         <div class="form-row fading-right">
           <div class="mb-3 w-100">
             <label for="validationTextarea">Textarea</label>
-            <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" name="description" required></textarea>
+            <textarea class="form-control" id="validationTextarea" placeholder="Digite uma descrição do pet..." name="description" required></textarea>
             <div class="invalid-feedback">
               Digite uma descrição do pet!
             </div>
@@ -50,24 +64,24 @@
       </div>
 
       <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
       </script>
     </div>
   </div>

@@ -64,8 +64,8 @@
         </div>
         <div class="form-row fading-left">
           <div class="col-6 mb-3">
-            <label for="validationCustom05">Cep</label>
-            <input type="text" class="form-control" id="validationCustom05" name="user_cep" maxlength="7" pattern="[0-9]{7}" placeholder="XXXXXXX" required>
+            <label for="validationCustom09">Cep</label>
+            <input type="text" class="form-control" id="validationCustom09" name="user_cep" maxlength="7" pattern="[0-9]{7}" placeholder="XXXXXXX" required>
             <div class="invalid-feedback">
               Digite um endereço válido de até 7 dígitos.
             </div>

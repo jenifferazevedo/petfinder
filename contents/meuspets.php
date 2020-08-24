@@ -25,7 +25,7 @@ else {
                 if ($p['pet_image'] == "n/a") {
                   echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem Pet">';
                 } else {
-                  echo '<img style="height:120%;" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet">';
+                  echo '<img id="petImg' . $p['pet_id'] . '" class="resize" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'petImg' . $p['pet_id'] . '\')" alt="Imagem Pet">';
                 }
                 ?>
               </div>

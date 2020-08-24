@@ -40,12 +40,12 @@
           <div class="card mb-3 w-100 align-self-start" style="min-width: 300px; max-width: 550px;">
             <div class="row no-gutters">
               <div class="col-xs-12 col-sm-5 p-2 d-flex justify-content-center">
-                <div class="adocaoImg rounded-circle justify-content-center">
+                <div class="adocaoImg rounded-circle justify-content-center" style="width:300px; height:300px;">
                   <?php
                   if ($p['pet_image'] == "n/a") {
                     echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem Pet">';
                   } else {
-                    echo '<img style="height:130%; min-width:120%" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet">';
+                    echo '<img id="petImg' . $p['pet_id'] . '" class="resize" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'petImg' . $p['pet_id'] . '\')" alt="Imagem Pet">';
                   }
                   ?>
                 </div>

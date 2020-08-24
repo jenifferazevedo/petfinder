@@ -20,6 +20,16 @@ function boxTop(idBox) {
   return boxOffset;
 }
 
+function resizeIMG(id) {
+  let img = document.getElementById(id);
+  let widthImg = img.naturalWidth;
+  let heightImg = img.naturalHeight;
+  if (widthImg > heightImg) {
+    img.setAttribute("style", "width:auto; height:120%")
+  } else img.setAttribute("style", "width:100%; height:auto")
+};
+
+
 $(document).ready(function () {
   var $target = $('.leftScroll'),
     animationClass = 'fading-left',
@@ -57,7 +67,6 @@ $(document).ready(function () {
     animeScroll();
   });
 });
-
 
 $(document).ready(function () {
   var $target = $('.fadingScroll'),

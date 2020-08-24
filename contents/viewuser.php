@@ -30,12 +30,12 @@ else {
     <div class="row justify-content-center my-5">
       <div class="col-8 card">
         <div class="d-flex justify-content-center my-3">
-          <div class="adocaoImg rounded-circle" style="width: 20%; min-width: 300px; max-height:300px; overflow:hidden;">
+          <div class="imgPerfil rounded-circle">
             <?php
             if ($user['image'] == "n/a") {
               echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem User">';
             } else {
-              echo '<img style="width:auto; min-height:300px; transform: Translate(-50%, -50%); margin:50%;" src="' . $user['image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet">';
+              echo '<img id="userImg' . $user['user_id'] . '" class="resize" src="' . $user['image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'userImg' . $user['user_id'] . '\')" alt="Imagem User">';
             }
             ?>
           </div>

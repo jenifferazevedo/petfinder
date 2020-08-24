@@ -4,6 +4,7 @@ if (!file_exists('./bd.php')) {
 } else if (file_exists('./bd.php')) {
   require_once('./bd.php');
 }
+ini_set('default_charset', 'utf-8');
 class User extends Conn
 {
   public $user_id;
@@ -28,14 +29,14 @@ class User extends Conn
   {
     if (isset($_POST['user_name'], $_POST['email'], $_POST['password']) && $this->conn != null) {
       try {
-        $this->user_name = ucwords(strtolower($_POST['user_name']));
-        $this->user_email = strtolower($_POST['email']);
+        $this->user_name = mb_convert_case($_POST['user_name'], MB_CASE_TITLE, "UTF-8");
+        $this->user_email = mb_strtolower($_POST['email']);
         $this->password = $_POST['password'];
-        $this->image = strlen($_POST['user_foto']) == 0 ? 'n/a' : $_POST['user_foto'];
-        $this->contact = ucwords(strtolower($_POST['contact']));
-        $this->adress = ucwords(strtolower($_POST['adress']));
+        $this->image = mb_strlen($_POST['user_foto']) == 0 ? 'n/a' : $_POST['user_foto'];
+        $this->contact = mb_convert_case($_POST['contact'], MB_CASE_TITLE, "UTF-8");
+        $this->adress = mb_convert_case($_POST['adress'], MB_CASE_TITLE, "UTF-8");
         $this->user_cep = $_POST['user_cep'];
-        $this->user_city = ucwords(strtolower($_POST['user_city']));
+        $this->user_city = mb_convert_case($_POST['user_city'], MB_CASE_TITLE, "UTF-8");
         $this->tipo = isset($_POST['user_type']) ? $_POST['user_type'] : '0';
 
         $this->sql = "INSERT INTO users (name, email, password, image, contact, adress, post_code, city, tipo) VALUES (:user_name, :user_email, :password, :image, :contact, :adress, :user_cep, :user_city, :tipo);";
@@ -63,15 +64,15 @@ class User extends Conn
   {
     if (isset($_POST['id'], $_POST['user_name'], $_POST['email'], $_POST['password'], $_POST['contact']) && $this->conn != null && isset($_SESSION['petfinder-user']) || isset($_SESSION['petfinder-admin'])) {
       try {
-        $this->user_name = ucwords(strtolower($_POST['user_name']));
-        $this->user_email = strtolower($_POST['email']);
+        $this->user_name = mb_convert_case($_POST['user_name'], MB_CASE_TITLE, "UTF-8");
+        $this->user_email = mb_strtolower($_POST['email']);
         $this->password = $_POST['password'];
-        $this->image = strlen($_POST['user_foto']) == 0 ? 'n/a' : $_POST['user_foto'];
-        $this->contact = ucwords(strtolower($_POST['contact']));
-        $this->adress = ucwords(strtolower($_POST['adress']));
+        $this->image = mb_strlen($_POST['user_foto']) == 0 ? 'n/a' : $_POST['user_foto'];
+        $this->contact = mb_convert_case($_POST['contact'], MB_CASE_TITLE, "UTF-8");
+        $this->adress = mb_convert_case($_POST['adress'], MB_CASE_TITLE, "UTF-8");
         $this->user_cep = $_POST['user_cep'];
-        $this->user_city = ucwords(strtolower($_POST['user_city']));
-        $this->tipo = isset($_POST['tipo']) ? $_POST['tipo'] : '0';
+        $this->user_city = mb_convert_case($_POST['user_city'], MB_CASE_TITLE, "UTF-8");
+        $this->tipo = isset($_POST['user_type']) ? $_POST['user_type'] : '0';
         $this->status = isset($_POST['status']) ? $_POST['status'] : 'ativo';
         $this->sql = "UPDATE users SET name=:user_name, email=:user_email, password=:password, 
         image=:image, contact=:contact, adress=:adress, post_code=:user_cep, city=:user_city, tipo=:tipo, status=:status WHERE user_id=:id";

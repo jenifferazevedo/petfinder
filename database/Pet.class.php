@@ -23,8 +23,8 @@ class Pet extends Conn
   {
     if (isset($_POST['pet_name'], $_POST['sexo'], $_POST['pet_type'], $_POST['description']) && $this->conn != null) {
       try {
-        $this->pet_name = ucwords(strtolower($_POST['pet_name']));
-        $this->pet_image = strlen($_POST['pet_image']) == 0 ? 'n/a' : $_POST['pet_image'];
+        $this->pet_name = mb_convert_case($_POST['pet_name'], MB_CASE_TITLE, "UTF-8");
+        $this->pet_image = mb_strlen($_POST['pet_image']) == 0 ? 'n/a' : $_POST['pet_image'];
         $this->user_id = $id;
         $this->sexo = $_POST['sexo'];
         $this->pet_type = $_POST['pet_type'];
@@ -53,8 +53,8 @@ class Pet extends Conn
     if (isset($_POST['pet_name'], $_POST['sexo'], $_POST['pet_type'], $_POST['description']) && $this->conn != null && isset($_SESSION['petfinder-user']) || isset($_SESSION['petfinder-admin'])) {
       try {
         $this->pet_id = $_POST['pet_id'];
-        $this->pet_name = ucwords(strtolower($_POST['pet_name']));
-        $this->pet_image = strlen($_POST['pet_image']) == 0 ? 'n/a' : $_POST['pet_image'];
+        $this->pet_name = mb_convert_case($_POST['pet_name'], MB_CASE_TITLE, "UTF-8");
+        $this->pet_image = mb_strlen($_POST['pet_image']) == 0 ? 'n/a' : $_POST['pet_image'];
         $this->user_id = $id;
         $this->status = isset($_POST['status']) ? $_POST['status'] : 'ativo';
         $this->sexo = $_POST['sexo'];

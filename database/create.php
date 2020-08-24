@@ -1,4 +1,5 @@
 <?php
+ini_set('default_charset', 'utf-8');
 session_start();
 $classepg;
 isset($_POST['user']) ? $classepg = require('./User.class.php') : $classepg = require('./Pet.class.php');

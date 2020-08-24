@@ -33,24 +33,27 @@ else {
             if ($pet['pet_image'] == "n/a") {
               echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem Pet">';
             } else {
-              echo '<img id="petImg' . $pet['pet_id'] . '" class="resize" src="' . $pet['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'petImg' . $pet['pet_id'] . '\')" alt="Imagem Pet">';
+              echo '<img id="petImg' . $pet['pet_id'] . '" class="resize" src="' . $pet['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet">';
             }
             ?>
           </div>
         </div>
-        <h5>ID: <small><?php echo $pet['pet_id'] ?></small></h5>
+        <?php if (isset($_SESSION['petfinder-admin'])) echo "<h5>ID: <small>" . $pet['pet_id'] . "</small></h5>" ?>
         <h5>Nome: <small><?php echo $pet['pet_name'] ?></small></h5>
         <h5>Image URL: <small><?php echo $pet['pet_image'] ?></small></h5>
-        <h5>User_id: <small><?php echo $pet['user_id'] ?></small></h5>
+        <?php if (isset($_SESSION['petfinder-admin'])) echo "<h5>User_id: <small>" . $pet['user_id'] . "</small></h5>" ?>
         <h5>Usuário: <small><?php echo $pet['user_name'] ?></small></h5>
         <h5>Contacto: <small><?php echo $pet['email'] ?></small></h5>
-        <h5>Status: <small><?php echo $pet['status'] ?></small></h5>
-        <h5>Tipo: <small><?php echo $pet['pet_type'] ?></small></h5>
+        <?php if (isset($_SESSION['petfinder-admin'])) echo "<h5>Status: <small>" . $pet['status'] . "</small></h5>" ?>
+        <h5>Tipo: <small><?php echo $pet['type_name'] ?></small></h5>
         <h5>Sexo: <small><?php echo ($pet['sexo'] == 'f') ? 'Fêmea' : 'Macho' ?></small></h5>
         <h5>Descrição: <small><?php echo $pet['description'] ?></small></h5>
         <h5>Cidade: <small><?php echo $pet['city'] ?></small></h5>
-        <h5>Create_at: <small><?php echo $pet['create_at'] ?></small></h5>
-        <h5>Update_at: <small><?php echo $pet['update_at'] ?></small></h5>
+        <h5><i class="fa fa-clock-o" aria-hidden="true"></i><small>
+            <?php $create = new DateTime($pet['create_at']);
+            echo isset($_SESSION['petfinder-admin']) ?  date_format($create, 'd/m/Y H:i:s') : date('d/m/Y', strtotime($pet['create_at'])) ?></small></h5>
+        <?php $update = new DateTime($pet['update_at']);
+        if (isset($_SESSION['petfinder-admin'])) echo "<h5>Modificado em: <small>" . date_format($update, 'd/m/Y H:i:s') . "</small></h5>" ?>
 
         <form id="delete" action="./database/delete.php" method="post" class="py-2 d-flex">
           <input type="hidden" name="pet" value="">

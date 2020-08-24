@@ -35,12 +35,12 @@ else {
             if ($user['image'] == "n/a") {
               echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem User">';
             } else {
-              echo '<img id="userImg' . $user['user_id'] . '" class="resize" src="' . $user['image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'userImg' . $user['user_id'] . '\')" alt="Imagem User">';
+              echo '<img id="userImg' . $user['user_id'] . '" class="resize" src="' . $user['image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem User">';
             }
             ?>
           </div>
         </div>
-        <h5>ID: <small><?php echo $user['user_id'] ?></small></h5>
+        <?php if (isset($_SESSION['petfinder-admin'])) echo "<h5>ID: <small>" . $user['user_id'] . "</small></h5>" ?>
         <h5>Nome: <small><?php echo $user['name'] ?></small></h5>
         <h5>Email: <small><?php echo $user['email'] ?></small></h5>
         <h5>Password: <small><?php echo $user['password'] ?></small></h5>
@@ -49,10 +49,16 @@ else {
         <h5>Morada: <small><?php echo $user['adress'] ?></small></h5>
         <h5>Código Postal: <small><?php echo $user['post_code'] ?></small></h5>
         <h5>Cidade: <small><?php echo $user['city'] ?></small></h5>
-        <h5>Tipo: <small><?php echo ($user['tipo'] == 1) ? 'Administrador' : 'Usuário' ?></small></h5>
-        <h5>Status: <small><?php echo $user['status'] ?></small></h5>
-        <h5>Create_at: <small><?php echo $user['create_at'] ?></small></h5>
-        <h5>Update_at: <small><?php echo $user['update_at'] ?></small></h5>
+        <?php if (isset($_SESSION['petfinder-admin'])) {
+          $status = $user['tipo'] == 1 ? 'Administrador' : 'Usuário';
+          echo "<h5>Tipo: <small>$status</small></h5>";
+          echo "<h5>Status: <small>" . $user['status'] . "</small></h5>";
+        } ?>
+        <h5><i class="fa fa-clock-o" aria-hidden="true"></i> <small>
+            <?php $create = new DateTime($user['create_at']);
+            echo isset($_SESSION['petfinder-admin']) ?  date_format($create, 'd/m/Y H:i:s') : date('d/m/Y', strtotime($user['create_at'])) ?></small></h5>
+        <?php $update = new DateTime($user['update_at']);
+        if (isset($_SESSION['petfinder-admin'])) echo "<h5>Modificado em: <small>" . date_format($update, 'd/m/Y H:i:s') . "</small></h5>"; ?>
 
         <form id="delete" action="./database/delete.php" method="post" class="py-2 d-flex">
           <input type="hidden" name="user" value="">

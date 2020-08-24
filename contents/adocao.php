@@ -45,7 +45,7 @@
                   if ($p['pet_image'] == "n/a") {
                     echo '<img src="./img/petfinderImgError.png" class="w-100" alt="Imagem Pet">';
                   } else {
-                    echo '<img id="petImg' . $p['pet_id'] . '" class="resize" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" onload="resizeIMG(\'petImg' . $p['pet_id'] . '\')" alt="Imagem Pet">';
+                    echo '<img id="petImg' . $p['pet_id'] . '" class="resize" src="' . $p['pet_image'] . '" onerror="this.onerror=null;this.src=\'./img/petfinderImgError.png\';" alt="Imagem Pet">';
                   }
                   ?>
                 </div>
@@ -64,7 +64,7 @@
                       <i class="fa fa-envelope" aria-hidden="true"></i> <?php echo $p['email'] ?>
                     </p>
                     <p class="mt-0">
-                      <i class="fa fa-phone" aria-hidden="true"></i> <?php echo $p['contact'] ?>
+                      <i class="fa fa-phone" aria-hidden="true"></i> <?php echo  $p['contact'] ?>
                     </p>
                   </div>
                   <div class="text-right">
@@ -73,7 +73,7 @@
                     </button>
                   </div>
                   <div class="text-center">
-                    <p class="card-text m-0"><small class="text-muted"><?php echo date('d M Y', strtotime($p['create_at'] . 'Monday next week')) ?></small></p>
+                    <p class="card-text m-0"><small class="text-muted"><?php echo date('d M Y', strtotime($p['create_at'])) ?></small></p>
                   </div>
                 </div>
               </div>

@@ -143,7 +143,7 @@ class Pet extends Conn
   public function filterPet($column, $value, $order)
   {
     try {
-      $this->stmt = $this->conn->prepare("SELECT p.*, u.name as user_name, u.email, u.city, t.type_name FROM pet p JOIN users u ON p.user_id=u.user_id JOIN type_pet t ON p.pet_type=t.type_id WHERE $column LIKE :value ORDER BY $column $order");
+      $this->stmt = $this->conn->prepare("SELECT p.*, u.name as user_name, u.email, u.city, u.contact, t.type_name FROM pet p JOIN users u ON p.user_id=u.user_id JOIN type_pet t ON p.pet_type=t.type_id WHERE $column LIKE :value ORDER BY $column $order");
       $this->stmt->bindValue(':value', "%" . $value . "%", PDO::PARAM_STR);
       $this->stmt->execute();
     } catch (Exception $e) {
